@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE DELIVERY CREW 🍕 | FULL ARCHIVE</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #f4f3ee;
+            --card-bg: #ffffff;
+            --text-color: #121212;
+            --border-color: #000000;
+            --accent-red: #ff4757;
+            --accent-yellow: #ffa502;
+            --accent-blue: #3742fa;
+            --discord-color: #5865F2;
+            --border-width: 3px;
+            --shadow-offset: 6px;
+            --font-main: 'Rubik', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            background-image: radial-gradient(#000 1px, transparent 1px);
+            background-size: 20px 20px;
+            overflow-x: hidden;
+        }
+
+        .marquee-strip {
+            background: var(--text-color);
+            color: #fff;
+            border-bottom: var(--border-width) solid var(--border-color);
+            padding: 10px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            z-index: 100;
+            font-family: var(--font-mono);
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: scroll-left 30s linear infinite;
+        }
+
+        @keyframes scroll-left {
+            0% { transform: translateX(50%); }
+            100% { transform: translateX(-50%); }
+        }
+
+        header {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .brand-title {
+            font-size: clamp(3rem, 10vw, 7rem);
+            font-weight: 900;
+            -webkit-text-stroke: 2px var(--border-color);
+            color: var(--card-bg);
+            text-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--accent-red);
+            margin-bottom: 40px;
+        }
+
+        .hero-btn {
+            background: var(--accent-yellow);
+            font-size: 1.5rem;
+            font-weight: 900;
+            padding: 20px 60px;
+            border: var(--border-width) solid var(--border-color);
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--border-color);
+            cursor: pointer;
+            transition: 0.1s;
+        }
+
+        section { padding: 60px 5%; }
+
+        .songs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .song-card {
+            background: var(--card-bg);
+            border: var(--border-width) solid var(--border-color);
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--border-color);
+            transition: 0.2s;
+        }
+
+        .song-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 10px 10px 0px var(--border-color);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            border-bottom: var(--border-width) solid var(--border-color);
+            background: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%; border: none;
+        }
+
+        .card-content { padding: 20px; }
+        .song-title { font-weight: 900; margin-bottom: 8px; font-size: 1.2rem; }
+        .song-desc { font-family: var(--font-mono); font-size: 0.8rem; color: #555; line-height: 1.4; }
+
+        .mystery-box {
+            background: #000;
+            color: #fff;
+            padding: 80px 20px;
+            border: var(--border-width) solid var(--accent-red);
+            box-shadow: 15px 15px 0px var(--accent-red);
+            text-align: center;
+            max-width: 900px;
+            margin: 40px auto;
+            position: relative;
+        }
+
+        .mystery-date {
+            font-size: clamp(3rem, 12vw, 6rem);
+            font-weight: 900;
+            font-family: var(--font-mono);
+            animation: glitch 2s infinite;
+        }
+
+        @keyframes glitch {
+            0%, 100% { transform: skew(0deg); }
+            20% { transform: skew(2deg); text-shadow: 4px 0 var(--accent-blue); }
+            80% { transform: skew(-1deg); text-shadow: -4px 0 var(--accent-red); }
+        }
+
+        .yt-follow-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            background: var(--accent-red);
+            color: white;
+            padding: 20px 40px;
+            font-size: 1.8rem;
+            font-weight: 900;
+            border: var(--border-width) solid #000;
+            box-shadow: 8px 8px 0px #000;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .yt-follow-btn:hover { transform: translate(-4px, -4px); box-shadow: 12px 12px 0px #000; }
+
+        .discord-master-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            background-color: var(--discord-color);
+            color: white;
+            padding: 25px 50px;
+            font-size: 1.6rem;
+            font-weight: 900;
+            border: var(--border-width) solid #000;
+            box-shadow: 10px 10px 0px #000;
+            text-decoration: none;
+            transition: 0.15s;
+        }
+
+        .discord-master-btn:hover { transform: translate(-5px, -5px); box-shadow: 15px 15px 0px #000; }
+
+        footer { background: #000; color: #fff; padding: 40px; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <div class="marquee-strip">
+        <div class="marquee-content">
+            CLASSIFIED INFORMATION /// THE DELIVERY CREW /// 1.1.2026 /// JOIN THE DISCORD /// FULL DISCOGRAPHY /// CLASSIFIED INFORMATION /// THE DELIVERY CREW ///
+        </div>
+    </div>
+
+    <header id="home">
+        <h1 class="brand-title">THE DELIVERY<br>CREW 🍕</h1>
+        <button class="hero-btn" onclick="document.getElementById('gallery').scrollIntoView({behavior: 'smooth'})">האזינו עכשיו</button>
+    </header>
+
+    <section id="gallery">
+        <div style="border-bottom: 3px solid #000; margin-bottom: 40px; padding-bottom: 10px;">
+            <h2 style="font-size: 2.5rem; font-weight: 900;">ALL TRACKS</h2>
+        </div>
+        <div class="songs-grid" id="songs-container"></div>
+    </section>
+
+    <section>
+        <div class="mystery-box">
+            <p style="font-family: var(--font-mono); color: var(--accent-red);">[ פתיחת קובץ מערכת... ]</p>
+            <div class="mystery-date">1.1.2026</div>
+        </div>
+    </section>
+
+    <section style="text-align: center; padding-bottom: 100px;">
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 30px;">
+            <a href="https://www.youtube.com/@pizzaaaaaasaaa" target="_blank" class="yt-follow-btn">
+                <i class="fab fa-youtube"></i> SUBSCRIBE
+            </a>
+            <a href="https://discord.gg/vp4uyf644Z" target="_blank" class="discord-master-btn">
+                <i class="fab fa-discord"></i> הצטרפו לדיסקורד
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p style="font-family: var(--font-mono);">&copy; 2024 THE DELIVERY CREW</p>
+    </footer>
+
+    <script>
+        const songs = [
+            { title: "בדד (גרסת אלייצור)", desc: "prod by delivery crew | מילים: שליח פיצה", date: "25.12.2025", id: "Qk-SCz5tzYI" },
+            { title: "נו איפה אגמי", desc: "prod by delivery crew | מילים: שליח פיצה, סופרביבי", date: "23.12.2025", id: "8w0YVC2ckpY" },
+            { title: "חובב טילונים", desc: "prod by delivery crew | מילים: שליח פיצה", date: "21.12.2025", id: "EfaNca6hud4" },
+            { title: "PR RP", desc: "prod by delivery crew | מילים: שליח פיצה", date: "15.12.2025", id: "UYZY7_9AExE" },
+            { title: "דורס חתולים", desc: "prod by delivery crew | מילים: סופרביבי, שליח פיצה", date: "15.12.2025", id: "HUk-94BBoNo" },
+            { title: "זה נכתב על הקיר", desc: "prod by jewda | מילים: שליח פיצה", date: "14.12.2025", id: "5iui_j0strU" },
+            { title: "עודדי", desc: "prod by jewda | מילים: פייקר, שליח פיצה", date: "12.12.2025", id: "tJLwBvRo8-Y" },
+            { title: "החברות הלכה לפח", desc: "Prod by dedashev02 | מילים: שליח פיצה", date: "11.12.2025", id: "Xjo6v_80waE" },
+            { title: "רוצה רק לשדר", desc: "prod by jewda | מילים: שליח פיצה", date: "11.12.2025", id: "7_WtxyZKLQQ" },
+            { title: "בלי ירוק", desc: "prod by jeweda | מילים: שליח פיצה, פייקר, סופרביבי", date: "8.12.2025", id: "8vPEOIGN4js" },
+            { title: "עובר כבר לרחוב", desc: "prod by jeweda | מילים: שליח פיצה", date: "7.12.2025", id: "elykHp0Lzgg" },
+            { title: "רק רציתי לעשן בים", desc: "prod by dedashav02 | מילים: שליח פיצה, סופרביבי", date: "4.12.2025", id: "iexqa2JPL0A" },
+            { title: "מה שנותר", desc: "prod by jewda | מילים: שליח פיצה, סופרביבי", date: "4.12.25", id: "qkUhscX6iek" },
+            { title: "נוכל אחד", desc: "מילים: שליח פיצה | prod by jewda", date: "4.12.25", id: "v0cqwBpR1is" },
+            { title: "אהובתי תמיד בוגדת בי", desc: "prod by jewda | מילים: שליח פיצה, שילוקס", date: "3.12.25", id: "7BK-d3poQIM" },
+            { title: "שינתה שם משפחה", desc: "prod by jewda | מילים: שליח פיצה, סופרביבי", date: "3.12.2025", id: "z7ERc3HMYbI" }
+        ];
+
+        const container = document.getElementById('songs-container');
+        songs.forEach(song => {
+            const card = document.createElement('div');
+            card.className = 'song-card';
+            card.innerHTML = `
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/${song.id}" loading="lazy" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <h3 class="song-title">${song.title}</h3>
+                    <p class="song-desc">${song.desc}</p>
+                    <div style="background:#000; color:#fff; display:inline-block; padding:2px 6px; font-size:0.7rem; margin-top:10px; font-family:var(--font-mono);">${song.date}</div>
+                </div>`;
+            container.appendChild(card);
+        });
+    </script>
+</body>
+</html>
